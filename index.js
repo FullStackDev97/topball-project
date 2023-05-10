@@ -1,7 +1,9 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import {connection} from "./src/models/database/connection.js"
-import router from "./src/routes/User.Router.js";
+//import {connection} from "./src/models/database/connection.js"
+import userRouter from "./src/routes/User.Router.js";
+import teamRouter from "./src/routes/Team.Router.js";
+import characterRouter from "./src/routes/Character.Router.js";
 
 dotenv.config();
 const app = express();
@@ -16,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.listen(process.env.PORT,()=>{
     console.log('server listening on port '+process.env.PORT);
     try {
-        connection.authenticate();
+        //connection.authenticate();
         console.log('connection succeded');
         //findUser(2);
         
@@ -26,4 +28,8 @@ app.listen(process.env.PORT,()=>{
     }
 })
 
-app.use('/user',router);
+app.use('/user',userRouter);
+
+app.use('/team',teamRouter);
+
+app.use('/character',characterRouter);
