@@ -3,7 +3,7 @@ import { connection } from './database/connection.js';
 
 const Team = connection.define('equipe',{
     id_Equipe:{
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
