@@ -18,14 +18,15 @@ export const findTeamById = async (team_id)=>{
 export const findTeamsByUserId = async (user_id)=>{
     try {
 
-        the_teams = await Team.findAll({
+        const the_teams = await Team.findAll({
             where: {
-              authorId: user_id
-            }
+              id_Utilisateur: user_id
+            },attributes:['id_Equipe','nom','id_Utilisateur']    
+            
         });
         console.log('########## equipes trouvées ########');
         console.log(the_teams);
-        return the_team;
+        return the_teams;
     } catch (error) {
         console.log("echec ! impossible de d'afficher les equipes");
         console.log('#########################################');

@@ -9,6 +9,10 @@ userRouter.get('/',async (req,res)=>{
     const users = await userController.getAllUsers(req,res);
 });
 
+userRouter.get('/teams',async (req,res)=>{
+    const users = await userController.getUserTeams(req,res);
+});
+
 userRouter.post('/create',async (req,res)=>{
     const user = await userController.newUser(req,res);
 });

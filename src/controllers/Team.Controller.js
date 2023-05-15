@@ -25,6 +25,8 @@ export const getAllChararactersByTeamId = async (req,res)=>{
     
 };
 
+
+
 export const getAllTeams = async (req,res)=>{
     try {
         teams = await TeamRepo.findAllTeams();
@@ -33,4 +35,45 @@ export const getAllTeams = async (req,res)=>{
         res.send(error);
     }
 };
+
+export const findTeamById = async (req,res)=>{
+    try {
+        team = await TeamRepo.findAllTeams(req.body.team_id);
+        res.send(team);
+    } catch (error) {
+        res.send(error);
+    }
+};
+
+export const createTeam = async (req,res)=>{
+    try {
+        await TeamRepo.createTeam(req.body); 
+        console.log("personnage crée dans la bdd");
+    } catch (error) {
+        console.log("impossible de créé le personnage");
+        return error;
+    }
+}
+
+export const editTeam = async (req,res)=>{
+    try {
+        const updatedTeam = await TeamRepo.updateTeam(req.body,req.body.team_id);
+        return updatedTeam;
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+}
+
+export const deleteTeam = async (req,res)=>{
+    try {
+        await Team.destroy(req.body.team_id);
+        console.log("utilisateur supprimer avec success");
+        return "utilisateur supprimer avec success";
+    } catch (error) {
+        console.log("impossible de supprimer le personnage");
+        return error;
+       
+    }
+}
 

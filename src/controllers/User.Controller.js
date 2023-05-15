@@ -1,8 +1,40 @@
-import Utilisateur from "../models/User.Model.js";
+import * as UserRepo from '../repositories/User.Repository.js'
+import * as TeamRepo from '../repositories/Team.Repository.js'
+import * as OrderRepo from '../repositories/Order.Repository.js'
+import * as GameRepo from '../repositories/Game.Repository.js'
+
+
+
+export const getUserTeams = async (req,res)=>{
+  try {
+    const userTeams = await TeamRepo.findTeamsByUserId(req.body.u_id);
+    res.send(userTeams);
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+export const getUserOrders = async (req,res)=>{
+  try {
+    const userOrders = await OrderRepo.findAllOrdersbyUserId(req.body.u_id);
+    res.send(userOrders);
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+export const getUserGames = async (req,res)=>{
+  try {
+    const userOrders = await GameRepo.findAllGamesbyUserId(req.body.u_id);
+    res.send(userOrders);
+  } catch (error) {
+    res.send(error);
+  }
+};
 
 export const newUser = async (req,res)=>{
     
-    const [user, created] = await Utilisateur.findOrCreate({
+    const [user, created] = await UserRepo.createUser({
         where: { email: req.body.email },
         defaults: {
             nom: req.body.nom,
@@ -25,7 +57,7 @@ export const newUser = async (req,res)=>{
 
 export const deleteUser = async (req,res)=>{
     
-  const [user, created] = await Utilisateur.deleteUserById({
+  const [user, created] = await UserRepo.deleteUserById({
       where: { email: req.body.email },
       defaults: {
           nom: req.body.nom,
@@ -48,7 +80,7 @@ export const deleteUser = async (req,res)=>{
 
 export const updateUser = async (req,res)=>{
     
-  const [user, created] = await Utilisateur.updateUserById({
+  const [user, created] = await UserRepo.updateUserById({
       where: { email: req.body.email },
       defaults: {
           nom: req.body.nom,
@@ -67,13 +99,13 @@ export const updateUser = async (req,res)=>{
       console.log(user)
       res.send("Bienvenue chez nous "+user.nom+" "+user.prenom)
     }
-}
+};
 
 export const getAllUsers = async (req,res)=>{
 
   try {
 
-    const users = await Utilisateur.findAll();
+    const users = await UserRepo.findAllUsers();
     console.log('voici la liste des utilisateurs');
     users.forEach(u=>console.log(u));
     res.send(users);
@@ -84,4 +116,22 @@ export const getAllUsers = async (req,res)=>{
     res.send(error);
   }
   
-}
+};
+
+export const getUserById = async (req,res)=>{
+
+  try {
+
+    const users = await UserRepo.findUserById(req.body.u_id);
+    console.log('voici l utilisateur');
+    users.forEach(u=>console.log(u));
+    res.send(users);
+
+  } catch (error) {
+    console.log('impossible de recuperer l utilisateur');
+    console.log(error);
+    res.send(error);
+  }
+  
+};
+

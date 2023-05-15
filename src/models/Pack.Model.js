@@ -1,7 +1,7 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection";
 
-const Product = connection.define('Produit',{
+const Pack = connection.define('pack',{
     id_Produit:{
         type:Sequelize.INTEGER,
         primaryKey:true,
