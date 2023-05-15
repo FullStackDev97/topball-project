@@ -51,7 +51,7 @@ export const createCharacter = async (newCharacter)=>{
     }
 }
 
-export const updateCharacter = async (character_id,newInfos)=>{
+export const modifyCharacter = async (character_id,newInfos)=>{
     try {
         const updatedCharacter = await Character.update(newInfos,{where:{id_Personnage:character_id}});
         return updatedCharacter;
