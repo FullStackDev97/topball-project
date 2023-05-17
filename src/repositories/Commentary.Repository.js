@@ -44,7 +44,7 @@ export const findCommentById =  async (comment_id)=>{
 
 }
 
-export const Comment = async (newComment)=>{
+export const createComment = async (newComment)=>{
     try {
         await Commentary.create(newComment); 
         console.log("commentaire crée dans la bdd");
@@ -54,15 +54,21 @@ export const Comment = async (newComment)=>{
     }
 }
 
-// export const updateArticle = async (article_id,newInfos)=>{
-//     try {
-//         const updatedArticle = await Article.update(newInfos,{where:{id_Article:article_id}});
-//         return updatedArticle;
-//     } catch (error) {
-//         console.log(error);
-//         return error;
-//     }
-// }
+
+
+export const updateComment = async (comment_id,data)=>{
+    try {
+        const the_Comment = await Commentary.update(data,{where:{id_Commentaire:comment_id}});
+        console.log('commentaire modifié dans la Bdd');
+        console.log(the_Comment);
+        return the_Comment;
+    } catch (error) {
+        console.log("echec ! impossible de mettre à jour du commentaire")
+        console.log('#########################################')
+        console.log(error);
+    }
+    
+}
 
 export const deleteComment = async (comment_d)=>{
     try {
