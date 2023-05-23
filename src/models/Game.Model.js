@@ -1,5 +1,5 @@
 import { Sequelize,DataTypes } from "sequelize";
-import { connection } from "./database/connection";
+import { connection } from "./database/connection.js";
 
 const Game = connection.define('rencontre',{
     id_Rencontre:{

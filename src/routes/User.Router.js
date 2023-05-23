@@ -13,6 +13,14 @@ userRouter.get('/teams',async (req,res)=>{
     const users = await userController.getUserTeams(req,res);
 });
 
+userRouter.get('/orders',async (req,res)=>{
+    const users = await userController.getUserOrders(req,res);
+});
+
+userRouter.get('/games',async (req,res)=>{
+    const users = await userController.getUserGames(req,res);
+});
+
 userRouter.post('/create',async (req,res)=>{
     const user = await userController.newUser(req,res);
 });

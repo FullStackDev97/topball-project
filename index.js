@@ -28,6 +28,10 @@ app.listen(process.env.PORT,()=>{
     }
 })
 
+app.get('/',(req,res)=>{
+    res.send('hello');
+})
+
 app.use('/user',userRouter);
 
 app.use('/team',teamRouter);

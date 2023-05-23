@@ -1,4 +1,4 @@
-import * as GameRepo from '../repositories/Game.Repository.js'
+import * as GameRepo from '../repositories/Game.Model.Manager.js'
 
 
 export const getAllGames = async (req,res)=>{

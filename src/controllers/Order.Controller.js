@@ -1,4 +1,4 @@
-import * as OrderRepo from '../repositories/Order.Repository.js'
+import * as OrderRepo from '../repositories/Order.Model.Manager.js'
 
 
 export const getAllOrders = async (req,res)=>{

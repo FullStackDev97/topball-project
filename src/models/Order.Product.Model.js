@@ -1,5 +1,5 @@
 import { Sequelize,DataTypes } from "sequelize";
-import { connection } from "./database/connection";
+import { connection } from "./database/connection.js";
 
 const Order_Product = connection.define('commande_produit',{
     id_Commande:{
