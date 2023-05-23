@@ -1,7 +1,7 @@
-import * as UserRepo from '../repositories/User.Repository.js'
-import * as TeamRepo from '../repositories/Team.Repository.js'
-import * as OrderRepo from '../repositories/Order.Repository.js'
-import * as GameRepo from '../repositories/Game.Repository.js'
+import * as UserRepo from '../model.managers/User.Model.Manager.js'
+import * as TeamRepo from '../model.managers/Team.Model.Manager.js'
+import * as OrderRepo from '../model.managers/Order.Model.Manager.js'
+import * as GameRepo from '../model.managers/Game.Model.Manager.js'
 
 
 

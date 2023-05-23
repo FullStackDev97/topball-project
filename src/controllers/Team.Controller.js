@@ -1,5 +1,5 @@
-import * as TeamRepo from "../repositories/Team.Repository.js";
-import * as CharacterRepo from "../repositories/Character.Repository.js"
+import * as TeamRepo from "../repositories/Team.Model.Manager.js";
+import * as CharacterRepo from "../repositories/Character.Model.Manager.js"
 
 
 export const getAllChararactersByTeamId = async (req,res)=>{
