@@ -1,4 +1,4 @@
-import * as ArticleRepo from '../repositories/Article.Model.Manager.js'
+import * as ArticleRepo from '../model.managers//Article.Model.Manager.js'
 
 export const getAllArtciles = async (req,res)=>{
     try {

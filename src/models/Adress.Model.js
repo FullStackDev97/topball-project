@@ -1,36 +1,33 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Adress = connection.define('adresse',{
-    id_Adresse:{
+const Adress = connection.define('Adress',{
+    id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    cp:{
+    country:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    ville:{
+    city:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    voie:{
+    postal_code:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    numero:{
+    road_type:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    nb:{
         type:DataTypes.INTEGER,
-        allowNull:false
-    },
-    departement:{
-        type:DataTypes.STRING,
         allowNull:true
     },
-    region:{
-        type:DataTypes.STRING,
-        allowNull:true
-    }
+    
 });
 
 

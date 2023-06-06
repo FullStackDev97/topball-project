@@ -1,15 +1,17 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const User_Adress = connection.define('utilisateur_adresse',{
-    id_Utilisateur:{
+const Player_Team = connection.define('Player_Team',{
+    id_Player:{
         type:DataTypes.INTEGER,
+        primaryKey:true,
         allowNull:false
     },
-    id_Adresses:{
+    id_Team:{
         type:DataTypes.INTEGER,
+        primaryKey:true,
         allowNull:false
     }
 });
 
-export default User_Adress;
+export default Player_Team;

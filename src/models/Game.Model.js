@@ -1,14 +1,26 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Game = connection.define('rencontre',{
-    id_Rencontre:{
+const Game = connection.define('Game',{
+    id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    score:{
-        type:DataTypes.STRING,
+    winner:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    loser:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    winner_points:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    loser_points:{
+        type:DataTypes.INTEGER,
         allowNull:false
     },
     id_Division:{

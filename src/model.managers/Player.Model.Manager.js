@@ -1,4 +1,4 @@
-import Character  from "../models/Character.Model.js";
+import Character  from "../models/Player.Model.js";
 
 export const findAllCharacters =  async ()=>{
     try {

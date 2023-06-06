@@ -1,36 +1,40 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import { connection } from './database/connection.js';
 
-const Character = connection.define('personnage',{
-    id_Personnage:{
+const Player = connection.define('Player',{
+    id:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    nom:{
+    first_name:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    prenom:{
+    last_name:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    poste:{
+    position:{
         type:DataTypes.ENUM('PG', 'SG', 'SF', 'PF', 'C'),
         allowNull:false
     },
-    qualite:{
-        type:DataTypes.ENUM('bronze', 'argent', 'or', 'diamand', 'special'),
+    quality:{
+        type:DataTypes.ENUM('bronze','silver','gold','diamand','special'),
         allowNull:false
     },
-    valeur:{
+    product_ref:{
         type:DataTypes.DOUBLE,
         allowNull:false
     },
     photo:{
-        type:DataTypes.STRING,
+        type:DataTypes.TEXT,
+        allowNull:false
+    },
+    price:{
+        type:DataTypes.DOUBLE,
         allowNull:false
     }
 });
 
-export default Character;
+export default Player;
