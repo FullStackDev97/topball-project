@@ -1,4 +1,4 @@
-import * as PackRepo from '../repositories/Pack.Model.Manager.js';
+import * as PackRepo from '../model.managers//Pack.Model.Manager.js';
 
 export const getAllPacks = async (req,res)=>{
     try {

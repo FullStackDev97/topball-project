@@ -1,50 +1,53 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import { connection } from './database/connection.js';
-import Order from './Order.Model.js';
+import Order from './Purchase.Model.js';
 import Team from './Team.Model.js';
 
-const Utilisateur = connection.define('utilisateur',{
-    id_Utilisateur : {
+const Utilisateur = connection.define('User',{
+    id : {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-    nom: {
+    first_name: {
         type: DataTypes.STRING,
         allowNull: false
       },
-    prenom: {
+    last_name: {
         type:DataTypes.STRING,
         allowNull: false
     },
-    email: {
+    user_name: {
         type:DataTypes.STRING,
         allowNull: false,
         unique:true
     },
-    date_de_Naissance: {
-        type:DataTypes.DATE,
-        allowNull: false
-    }
-    ,
-    pseudo: {
+    email: {
         type:DataTypes.STRING,
         allowNull: true,
         unique:true
     },
-    u_role: {
-        type:DataTypes.ENUM('admin','joueur'),
-        allowNull: false
-    },
-    photo: {
+    password: {
         type:DataTypes.STRING,
         allowNull: true
     },
-    mdp: {
-        type:DataTypes.TEXT,
-        allowNull: true
+    birth_date: {
+        type:DataTypes.DATE,
+        allowNull: false
     },
-    id_division: {
+    profil_pic: {
+        type:DataTypes.DATE,
+        allowNull: false
+    },
+    role: {
+        type:DataTypes.ENUM('admin','joueur'),
+        allowNull: false
+    },
+    id_Division: {
+        type:DataTypes.INTEGER,
+        allowNull: false
+    },
+    id_Adress: {
         type:DataTypes.INTEGER,
         allowNull: false
     }

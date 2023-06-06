@@ -2,20 +2,20 @@ import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
 const Pack = connection.define('pack',{
-    id_Produit:{
+    id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    nom:{
+    name:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    reference:{
-        type:DataTypes.STRING,
+    quality:{
+        type:DataTypes.ENUM('bronze','silver','gold','diamand','special'),
         allowNull:false
     },
-    prix:{
+    price:{
         type:DataTypes.DOUBLE,
         allowNull:false
     }

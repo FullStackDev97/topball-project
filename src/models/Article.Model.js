@@ -1,8 +1,8 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Article = connection.define('article',{
-    id_Article:{
+const Article = connection.define('Article',{
+    id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
         autoIncrement:true
@@ -11,19 +11,19 @@ const Article = connection.define('article',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    sujet:{
+    subjet:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    contenu:{
+    content:{
         type:DataTypes.TEXT,
         allowNull:false
     },
-    date_publication:{
+    date_published:{
         type:DataTypes.DATE,
         allowNull:false
     },
-    id_Utilisateur:{
+    id_User:{
         type:DataTypes.INTEGER,
         allowNull:false
     }

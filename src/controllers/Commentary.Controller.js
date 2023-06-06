@@ -1,4 +1,4 @@
-import * as CommentRepo from '../repositories/Commentary.Model.Manager.js'
+import * as CommentRepo from '../model.managers//Commentary.Model.Manager.js'
 
 export const getAllComments = async (req,res)=>{
     try {

@@ -1,19 +1,17 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const User_Game = connection.define('utilisateur_rencontre',{
-    id_Utilisateur:{
+const Team_Game = connection.define('Team_Game',{
+    id_Team:{
         type:DataTypes.INTEGER,
+        primaryKey:true,
         allowNull:false
     },
-    id_Rencontre:{
+    id_Team:{
         type:DataTypes.INTEGER,
-        allowNull:false
-    },
-    vainqueur:{
-        type:DataTypes.INTEGER,
+        primaryKey:true,
         allowNull:false
     }
 });
 
-export default User_Game;
+export default Team_Game;

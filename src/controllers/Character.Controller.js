@@ -1,4 +1,4 @@
-import * as CharacterRepo from "../repositories/Character.Model.Manager.js"
+import * as CharacterRepo from "../model.managers/Player.Model.Manager.js"
 
 
 export const getAllCharacters = async (req,res)=>{

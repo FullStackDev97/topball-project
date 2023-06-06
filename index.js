@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 //import {connection} from "./src/models/database/connection.js"
 import userRouter from "./src/routes/User.Router.js";
 import teamRouter from "./src/routes/Team.Router.js";
-import characterRouter from "./src/routes/Character.Router.js";
+import playerRouter from "./src/routes/Player.Router.js";
 
 dotenv.config();
 const app = express();
@@ -36,4 +36,4 @@ app.use('/user',userRouter);
 
 app.use('/team',teamRouter);
 
-app.use('/character',characterRouter);
+app.use('/player',playerRouter);

@@ -1,5 +1,5 @@
 import Team from "../models/Team.Model.js";
-import Team_Character from "../models/Team.Character.Model.js"
+import Team_Player from "../models/Team.Player.Model.js"
 
 export const findTeamById = async (team_id)=>{
     try {

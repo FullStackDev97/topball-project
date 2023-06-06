@@ -1,25 +1,25 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Commentary = connection.define('comentaire',{
-    id_Commentaire:{
+const Commentary = connection.define('Comment',{
+    id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    contenu:{
+    content:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    date_creation:{
+    date_published:{
         type:DataTypes.DATE,
         allowNull:false
     },
-    id_Utilisateur:{
+    id_Article:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    id_Article:{
+    id_User:{
         type:DataTypes.INTEGER,
         allowNull:false
     }
