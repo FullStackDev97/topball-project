@@ -20,8 +20,8 @@ export const findTeamsByUserId = async (user_id)=>{
 
         const the_teams = await Team.findAll({
             where: {
-              id_Utilisateur: user_id
-            },attributes:['id_Equipe','nom','id_Utilisateur']    
+              id_User: user_id
+            },attributes:['name','country']    
             
         });
         console.log('########## equipes trouvées ########');
@@ -53,7 +53,7 @@ export const findAllCharactersByTeam = async (team_id)=>{
     
 
     try {
-        const teamCharacterIds = await Team_Character.findAll({where:{id_Equipe:team_id}});
+        const teamCharacterIds = await Team_Character.findAll({where:{id:team_id}});
         teamCharacterIds.forEach(i=>console.log(i));
         return teamCharacterIds;
     } catch (error) {
@@ -72,7 +72,7 @@ export const createTeam = async (newTeam)=>{
 
 export const updateTeam = async (teamUpdates,team_id)=>{
     try {
-        const updatedTeam = await Team.update(teamUpdates,{where:{id_Equipe:team_id}});
+        const updatedTeam = await Team.update(teamUpdates,{where:{id:team_id}});
         console.log(updatedTeam);
     } catch (error) {
         console.log(error);
@@ -81,7 +81,7 @@ export const updateTeam = async (teamUpdates,team_id)=>{
 
 export const deleteTeam = async (team_id)=>{
     try {
-        const deletedTeam = Team.destroy({where:{id_Equipe:team_id}});
+        const deletedTeam = Team.destroy({where:{id:team_id}});
     } catch (error) {
         console.log(error);
     }
@@ -89,7 +89,7 @@ export const deleteTeam = async (team_id)=>{
 
 export const deleteTeamByUserId = async (user_id)=>{
     try {
-        const deletedTeams = Team.destroy({where:{id_Utilisateur:user_id}});
+        const deletedTeams = Team.destroy({where:{id_User:user_id}});
     } catch (error) {
         console.log(error);
     }

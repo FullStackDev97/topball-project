@@ -9,6 +9,10 @@ userRouter.get('/',async (req,res)=>{
     const users = await userController.getAllUsers(req,res);
 });
 
+userRouter.get('/find',async (req,res)=>{
+    const users = await userController.getUserById(req,res);
+});
+
 userRouter.get('/teams',async (req,res)=>{
     const users = await userController.getUserTeams(req,res);
 });
@@ -19,6 +23,14 @@ userRouter.get('/orders',async (req,res)=>{
 
 userRouter.get('/games',async (req,res)=>{
     const users = await userController.getUserGames(req,res);
+});
+
+userRouter.get('/games/won',async (req,res)=>{
+    const users = await userController.getUserGamesWon(req,res);
+});
+
+userRouter.get('/games/lost',async (req,res)=>{
+    const users = await userController.getUserGamesLost(req,res);
 });
 
 userRouter.post('/create',async (req,res)=>{

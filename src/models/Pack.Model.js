@@ -1,7 +1,7 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Pack = connection.define('pack',{
+const Pack = connection.define('Pack',{
     id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
@@ -20,3 +20,5 @@ const Pack = connection.define('pack',{
         allowNull:false
     }
 });
+
+export default Pack;

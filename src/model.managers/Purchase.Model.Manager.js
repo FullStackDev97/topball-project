@@ -13,7 +13,7 @@ export const findAllOrders =  async ()=>{
 
 export const findAllOrdersbyUserId =  async (user_id)=>{
     try {
-        const Orders = await Order.findAll({where:{id_Utilisateur:user_id}});
+        const Orders = await Order.findAll({where:{id_User:user_id},attributes:['date_Purchased','id_Adress',]});
         return Orders;
     } catch (error) {
         console.log(error);
@@ -23,7 +23,7 @@ export const findAllOrdersbyUserId =  async (user_id)=>{
 
 export const findAllOrdersbyAdressId =  async (adress_id)=>{
     try {
-        const Orders = await Order.findAll({where:{id_Adresse:adress_id}});
+        const Orders = await Order.findAll({where:{id_Adress:adress_id}});
         return Orders;
     } catch (error) {
         console.log(error);
@@ -33,7 +33,7 @@ export const findAllOrdersbyAdressId =  async (adress_id)=>{
 
 export const findAllProductsIdsByOrder =  async (order_id)=>{
     try {
-        const Orders = await Order_Product.findAll({where:{id_Commande:order_id}});
+        const Orders = await Order_Product.findAll({where:{id:order_id}});
         return Orders;
     } catch (error) {
         console.log(error);
@@ -64,7 +64,7 @@ export const createOrder = async (newOrder)=>{
 
 export const updateOrder = async (Order_id,newInfos)=>{
     try {
-        const updatedOrder = await Order.update(newInfos,{where:{id_Commande:Order_id}});
+        const updatedOrder = await Order.update(newInfos,{where:{id:Order_id}});
         return updatedOrder;
     } catch (error) {
         console.log(error);
@@ -74,7 +74,7 @@ export const updateOrder = async (Order_id,newInfos)=>{
 
 export const deleteOrder = async (Order_id)=>{
     try {
-        await Order.destroy({where:{id_Commande:Order_id}});
+        await Order.destroy({where:{id:Order_id}});
         console.log("utilisateur supprimer avec success");
         return "utilisateur supprimer avec success";
     } catch (error) {

@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import userRouter from "./src/routes/User.Router.js";
 import teamRouter from "./src/routes/Team.Router.js";
 import playerRouter from "./src/routes/Player.Router.js";
+import packRouter from "./src/routes/Pack.Routers.js"
 
 dotenv.config();
 const app = express();
@@ -37,3 +38,5 @@ app.use('/user',userRouter);
 app.use('/team',teamRouter);
 
 app.use('/player',playerRouter);
+
+app.use('/pack',packRouter);

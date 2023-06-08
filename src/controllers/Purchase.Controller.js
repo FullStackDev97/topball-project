@@ -1,9 +1,9 @@
-import * as OrderRepo from '../model.managers//Order.Model.Manager.js'
+import * as PurchaseRepo from '../model.managers/Purchase.Model.Manager.js'
 
 
 export const getAllOrders = async (req,res)=>{
     try {
-        orders = await OrderRepo.findAllOrders();
+        orders = await PurchaseRepo.findAllOrders();
         res.send(orders);
     } catch (error) {
         res.send(error);
@@ -12,7 +12,7 @@ export const getAllOrders = async (req,res)=>{
 
 export const getAllOrdersbyAdress = async (req,res)=>{
     try {
-        orders = await OrderRepo.findAllOrdersbyAdressId(req.body.adress_id);
+        orders = await PurchaseRepo.findAllOrdersbyAdressId(req.body.adress_id);
         res.send(orders);
     } catch (error) {
         res.send(error);
@@ -21,7 +21,7 @@ export const getAllOrdersbyAdress = async (req,res)=>{
 
 export const getAllOrdersbyUser = async (req,res)=>{
     try {
-        orders = await OrderRepo.findAllOrdersbyUserId(req.body.user_id);
+        orders = await PurchaseRepo.findAllOrdersbyUserId(req.body.user_id);
         res.send(orders);
     } catch (error) {
         res.send(error);
@@ -30,7 +30,7 @@ export const getAllOrdersbyUser = async (req,res)=>{
 
 export const getOrderById = async (req,res)=>{
     try {
-        order = await OrderRepo.findOrderById(req.body.order_id);
+        order = await PurchaseRepo.findOrderById(req.body.order_id);
         res.send(order);
     } catch (error) {
         res.send(error);
@@ -39,7 +39,7 @@ export const getOrderById = async (req,res)=>{
 
 export const newOrder = async (req,res)=>{
     try {
-        await OrderRepo.createOrder(req.body); 
+        await PurchaseRepo.createOrder(req.body); 
         console.log("personnage crée dans la bdd");
     } catch (error) {
         console.log("impossible de créé le personnage");
@@ -49,7 +49,7 @@ export const newOrder = async (req,res)=>{
 
 export const editOrder = async (req,res)=>{
     try {
-        const updatedOrder = await OrderRepo.updateOrder(req.body,req.body.order_id);
+        const updatedOrder = await PurchaseRepo.updateOrder(req.body,req.body.order_id);
         return updatedOrder;
     } catch (error) {
         console.log(error);
@@ -59,7 +59,7 @@ export const editOrder = async (req,res)=>{
 
 export const deleteOrder = async (req,res)=>{
     try {
-        await OrderRepo.deleteOrder(req.body.Order_id);
+        await PurchaseRepo.deleteOrder(req.body.Order_id);
         console.log("utilisateur supprimer avec success");
         return "utilisateur supprimer avec success";
     } catch (error) {
