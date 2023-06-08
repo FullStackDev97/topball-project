@@ -43,7 +43,7 @@ export const findUserById = async (u_id)=>{
 
 export const updateUserById = async (u_id,data)=>{
     try {
-        const the_user = await Utilisateur.update(data,{where:{id_Utilisateur:u_id}});
+        const the_user = await Utilisateur.update(data,{where:{id:u_id}});
         console.log('utilisateur trouvé dans la Bdd');
         console.log(the_user);
         //return user;
@@ -57,7 +57,7 @@ export const updateUserById = async (u_id,data)=>{
 
 export const deleteUserById = async (u_id)=>{
     try {
-        const the_user = await Utilisateur.update({where:{id_Utilisateur:u_id}});
+        const the_user = await Utilisateur.update({where:{id:u_id}});
         console.log('utilisateur supprimé dans la Bdd');
         console.log(the_user);
         //return user;

@@ -12,7 +12,25 @@ export const getAllGames = async (req,res)=>{
 
 export const getAllGamesByUser = async (req,res)=>{
     try {
-        const allGamesFromUser = await GameRepo.findAllGamesbyUserId(req.body.user_id);
+        const allGamesFromUser = await GameRepo.findAllGamesbyUserId(req.body.u_id);
+        res.send(allGamesFromUser);
+    } catch (error) {
+        res.send(error);
+    }
+}
+
+export const getAllGamesWonByUser = async (req,res)=>{
+    try {
+        const allGamesFromUser = await GameRepo.findAllGamesWonbyUserId(req.body.u_id);
+        res.send(allGamesFromUser);
+    } catch (error) {
+        res.send(error);
+    }
+}
+
+export const getAllGamesLostByUser = async (req,res)=>{
+    try {
+        const allGamesFromUser = await GameRepo.findAllGamesLostbyUserId(req.body.u_id);
         res.send(allGamesFromUser);
     } catch (error) {
         res.send(error);

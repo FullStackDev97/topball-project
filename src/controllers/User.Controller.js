@@ -1,6 +1,6 @@
 import * as UserRepo from '../model.managers/User.Model.Manager.js'
 import * as TeamRepo from '../model.managers/Team.Model.Manager.js'
-import * as OrderRepo from '../model.managers/Order.Model.Manager.js'
+import * as OrderRepo from '../model.managers/Purchase.Model.Manager.js'
 import * as GameRepo from '../model.managers/Game.Model.Manager.js'
 
 
@@ -26,6 +26,24 @@ export const getUserOrders = async (req,res)=>{
 export const getUserGames = async (req,res)=>{
   try {
     const userOrders = await GameRepo.findAllGamesbyUserId(req.body.u_id);
+    res.send(userOrders);
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+export const getUserGamesWon = async (req,res)=>{
+  try {
+    const userOrders = await GameRepo.findAllGamesWonbyUserId(req.body.u_id);
+    res.send(userOrders);
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+export const getUserGamesLost = async (req,res)=>{
+  try {
+    const userOrders = await GameRepo.findAllGamesLostbyUserId(req.body.u_id);
     res.send(userOrders);
   } catch (error) {
     res.send(error);
@@ -121,11 +139,11 @@ export const getAllUsers = async (req,res)=>{
 export const getUserById = async (req,res)=>{
 
   try {
-
-    const users = await UserRepo.findUserById(req.body.u_id);
-    console.log('voici l utilisateur');
-    users.forEach(u=>console.log(u));
-    res.send(users);
+    console.log(req.body.u_id);
+    const user = await UserRepo.findUserById(req.body.u_id);
+    console.log(user);
+    //users.forEach(u=>console.log(u));
+    res.send(user);
 
   } catch (error) {
     console.log('impossible de recuperer l utilisateur');

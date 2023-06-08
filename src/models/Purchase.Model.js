@@ -7,7 +7,7 @@ const Order = connection.define('Purchase',{
         autoIncrement:true,
         primaryKey:true
     },
-    date_Puchased:{
+    date_Purchased:{
         type:DataTypes.DATE,
         allowNull:false
     },

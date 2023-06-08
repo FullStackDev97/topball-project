@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import { connection } from './database/connection.js';
 
-const Team = connection.define('equipe',{
+const Team = connection.define('Team',{
     id:{
         type: DataTypes.INTEGER,
         autoIncrement: true,

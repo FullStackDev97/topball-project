@@ -1,5 +1,7 @@
 import Game from "../models/Game.Model.js";
-//import User_Game from "../models/User.Game.Model.js";
+//import Team_Game from "../models/Team.Game.Model.js";
+import {Op} from "sequelize";
+
 
 export const findAllGames =  async ()=>{
     try {
@@ -13,8 +15,28 @@ export const findAllGames =  async ()=>{
 
 export const findAllGamesbyUserId =  async (user_id)=>{
     try {
-        const user_games = await User_Game.findAll({where:{id_Utilisateur:user_id}});
-        return user_games;
+        const team_games = await Game.findAll({where:{[Op.or]: [{winner:user_id},{loser:user_id}]}});
+        return team_games;
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+};
+
+export const findAllGamesWonbyUserId =  async (user_id)=>{
+    try {
+        const team_games = await Game.findAll({where:{winner:user_id}});
+        return team_games;
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+};
+
+export const findAllGamesLostbyUserId =  async (user_id)=>{
+    try {
+        const team_games = await Game.findAll({where:{loser:user_id}});
+        return team_games;
     } catch (error) {
         console.log(error);
         return error;
