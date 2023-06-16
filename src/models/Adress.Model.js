@@ -1,8 +1,8 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Adress = connection.define('Adress',{
-    id:{
+const Adress = connection.define('adress',{
+    adress_id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
@@ -19,7 +19,7 @@ const Adress = connection.define('Adress',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    road_type:{
+    road:{
         type:DataTypes.STRING,
         allowNull:false
     },

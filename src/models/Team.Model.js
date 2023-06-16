@@ -1,8 +1,8 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import { connection } from './database/connection.js';
 
-const Team = connection.define('Team',{
-    id:{
+const Team = connection.define('team',{
+    team_id:{
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -15,7 +15,7 @@ const Team = connection.define('Team',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    id_User:{ 
+    user_id:{ 
         type:DataTypes.INTEGER,
         allowNull:false
     }

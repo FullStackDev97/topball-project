@@ -1,8 +1,8 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Division = connection.define('Division',{
-    id:{
+const Division = connection.define('division',{
+    division_id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
         primaryKey:true 
@@ -12,18 +12,18 @@ const Division = connection.define('Division',{
         allowNull:false
     },
     reward:{
-        type:DataTypes.ENUM('bronze','silver','gold','diamand','special'),
+        type:DataTypes.ENUM('bronze','silver','gold','diamond','special'),
         allowNull:false
     },
-    for_title:{
+    points_tittle:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    for_promotion:{
+    points_promo:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    to_stay_up:{
+    points_stay_up:{
         type:DataTypes.INTEGER,
         allowNull:false
     }

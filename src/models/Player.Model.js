@@ -1,11 +1,11 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import { connection } from './database/connection.js';
 
-const Player = connection.define('Player',{
-    id:{
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+const Player = connection.define('player',{
+    player_product_ref:{
+        type:DataTypes.STRING,
+        primaryKey: true,
+        allowNull:false
     },
     first_name:{
         type:DataTypes.STRING,
@@ -20,11 +20,7 @@ const Player = connection.define('Player',{
         allowNull:false
     },
     quality:{
-        type:DataTypes.ENUM('bronze','silver','gold','diamand','special'),
-        allowNull:false
-    },
-    product_ref:{
-        type:DataTypes.DOUBLE,
+        type:DataTypes.ENUM('bronze','silver','gold','diamond','special'),
         allowNull:false
     },
     photo:{

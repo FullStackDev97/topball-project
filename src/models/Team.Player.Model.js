@@ -1,7 +1,7 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Player_Team = connection.define('Player_Team',{
+const Player_Team = connection.define('player_team',{
     id_Player:{
         type:DataTypes.INTEGER,
         primaryKey:true,

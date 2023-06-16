@@ -1,8 +1,8 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Game = connection.define('Game',{
-    id:{
+const Game = connection.define('game',{
+    game_id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true

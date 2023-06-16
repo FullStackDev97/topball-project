@@ -1,8 +1,8 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Commentary = connection.define('Comment',{
-    id:{
+const Commentary = connection.define('commentary',{
+    commentary_id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
@@ -15,11 +15,11 @@ const Commentary = connection.define('Comment',{
         type:DataTypes.DATE,
         allowNull:false
     },
-    id_Article:{
+    article_id:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    id_User:{
+    user_id:{
         type:DataTypes.INTEGER,
         allowNull:false
     }

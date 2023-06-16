@@ -1,8 +1,8 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Order = connection.define('Purchase',{
-    id:{
+const Order = connection.define('purchase',{
+    purchase_id:{
         type: Sequelize.INTEGER,
         autoIncrement:true,
         primaryKey:true
@@ -11,11 +11,11 @@ const Order = connection.define('Purchase',{
         type:DataTypes.DATE,
         allowNull:false
     },
-    id_Adress:{
+    adress_id:{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    id_User:{
+    user_id:{
         type:DataTypes.INTEGER,
         allowNull:false
     }
