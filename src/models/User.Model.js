@@ -3,8 +3,8 @@ import { connection } from './database/connection.js';
 import Order from './Purchase.Model.js';
 import Team from './Team.Model.js';
 
-const Utilisateur = connection.define('User',{
-    id : {
+const Utilisateur = connection.define('_user',{
+    user_id : {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -31,7 +31,7 @@ const Utilisateur = connection.define('User',{
         type:DataTypes.STRING,
         allowNull: true
     },
-    birth_date: {
+    date_birth: {
         type:DataTypes.DATE,
         allowNull: false
     },
@@ -40,14 +40,14 @@ const Utilisateur = connection.define('User',{
         allowNull: false
     },
     role: {
-        type:DataTypes.ENUM('admin','joueur'),
+        type:DataTypes.ENUM('admin','baller'),
         allowNull: false
     },
-    id_Division: {
+    division_id: {
         type:DataTypes.INTEGER,
         allowNull: false
     },
-    id_Adress: {
+    adress_id: {
         type:DataTypes.INTEGER,
         allowNull: false
     }

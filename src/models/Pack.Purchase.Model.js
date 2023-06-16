@@ -1,13 +1,13 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Pack_Purchase = connection.define('Pack_Purchase',{
-    id_Pack:{
-        type:DataTypes.INTEGER,
+const Pack_Purchase = connection.define('pack_purchase',{
+    pack_product_ref:{
+        type:DataTypes.STRING,
         primaryKey:true,
         allowNull:false
     },
-    id_Purchase:{
+    purchase_id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
         allowNull:false

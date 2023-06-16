@@ -1,17 +1,17 @@
 import { Sequelize,DataTypes } from "sequelize";
 import { connection } from "./database/connection.js";
 
-const Article = connection.define('Article',{
-    id:{
+const Article = connection.define('article',{
+    article_id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
         autoIncrement:true
     },
-    titre:{
+    title:{
         type:DataTypes.STRING,
         allowNull:false
     },
-    subjet:{
+    subject:{
         type:DataTypes.STRING,
         allowNull:false
     },
@@ -23,7 +23,7 @@ const Article = connection.define('Article',{
         type:DataTypes.DATE,
         allowNull:false
     },
-    id_User:{
+    user_id:{
         type:DataTypes.INTEGER,
         allowNull:false
     }
