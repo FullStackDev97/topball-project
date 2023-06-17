@@ -13,7 +13,7 @@ export const findAllComments =  async ()=>{
 
 export const findAllCommentsByArticle =  async (article_id)=>{
     try {
-        const all_comments_article = await Commentary.findAll({where:{id_Article:article_id}});
+        const all_comments_article = await Commentary.findAll({where:{article_id:article_id}});
         return all_comments_article;
     } catch (error) {
         console.log(error);
@@ -23,7 +23,7 @@ export const findAllCommentsByArticle =  async (article_id)=>{
 
 export const findAllCommentairiesbyUserId =  async (user_id)=>{
     try {
-        const user_comments = await Commentary.findAll({where:{id_Utilisateur:user_id}});
+        const user_comments = await Commentary.findAll({where:{user_id:user_id}});
         return user_comments;
     } catch (error) {
         console.log(error);
@@ -58,7 +58,7 @@ export const createComment = async (newComment)=>{
 
 export const updateComment = async (comment_id,data)=>{
     try {
-        const the_Comment = await Commentary.update(data,{where:{id_Commentaire:comment_id}});
+        const the_Comment = await Commentary.update(data,{where:{commentary_id:comment_id}});
         console.log('commentaire modifié dans la Bdd');
         console.log(the_Comment);
         return the_Comment;
@@ -72,7 +72,7 @@ export const updateComment = async (comment_id,data)=>{
 
 export const deleteComment = async (comment_d)=>{
     try {
-        await Commentary.destroy({where:{id_Commentaire:comment_d}});
+        await Commentary.destroy({where:{commentary_id:comment_d}});
         console.log("commentaire supprimer avec success");
         return "commentaire supprimer avec success";
     } catch (error) {

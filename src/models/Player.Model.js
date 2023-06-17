@@ -15,7 +15,7 @@ const Player = connection.define('player',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    position:{
+    _position:{
         type:DataTypes.ENUM('PG', 'SG', 'SF', 'PF', 'C'),
         allowNull:false
     },

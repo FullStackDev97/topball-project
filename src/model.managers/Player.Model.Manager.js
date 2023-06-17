@@ -22,7 +22,7 @@ export const findAllCharactersbyQuality =  async (qualiteWanted)=>{
 
 export const findAllCharactersbyPosition =  async (positionWanted)=>{
     try {
-        const characters = await Character.findAll({where:{position:positionWanted}});
+        const characters = await Character.findAll({where:{_position:positionWanted}});
         return characters;
     } catch (error) {
         console.log(error);
@@ -53,7 +53,7 @@ export const createCharacter = async (newCharacter)=>{
 
 export const modifyCharacter = async (character_id,newInfos)=>{
     try {
-        const updatedCharacter = await Character.update(newInfos,{where:{id:character_id}});
+        const updatedCharacter = await Character.update(newInfos,{where:{player_id:character_id}});
         return updatedCharacter;
     } catch (error) {
         console.log(error);
@@ -63,7 +63,7 @@ export const modifyCharacter = async (character_id,newInfos)=>{
 
 export const deleteCharacter = async (character_id)=>{
     try {
-        await Character.destroy({where:{id:character_id}});
+        await Character.destroy({where:{player_id:character_id}});
         console.log("utilisateur supprimer avec success");
         return "utilisateur supprimer avec success";
     } catch (error) {

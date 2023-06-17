@@ -23,7 +23,7 @@ const Game = connection.define('game',{
         type:DataTypes.INTEGER,
         allowNull:false
     },
-    id_Division:{
+    division_id:{
         type:DataTypes.INTEGER,
         allowNull:false
     }
