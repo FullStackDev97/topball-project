@@ -80,7 +80,7 @@ export const createGame = async (newGame,usersGame)=>{
 
 export const deleteGame = async (game_id)=>{
     try {
-        await Game.destroy({where:{id_Rencontre:game_id}});
+        await Game.destroy({where:{game_id:game_id}});
         console.log("adresse supprimer avec success");
         return "adresse supprimer avec success";
     } catch (error) {

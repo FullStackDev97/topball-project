@@ -13,7 +13,7 @@ export const findAllAdressses =  async ()=>{
 
 export const findAllAdressbyUserId =  async (user_id)=>{
     try {
-        const user_adresses = await User_Adress.findAll({where:{id_Utilisateur:user_id}});
+        const user_adresses = await User_Adress.findAll({where:{user_id:user_id}});
         return user_adresses;
     } catch (error) {
         console.log(error);
@@ -46,7 +46,7 @@ export const createAdress = async (newAdress)=>{
 
 export const updateAdress = async (adress_id,newInfos)=>{
     try {
-        const updatedAdress = await Adress.update(newInfos,{where:{id_Adresses:adress_id}});
+        const updatedAdress = await Adress.update(newInfos,{where:{adress_id:adress_id}});
         return updatedAdress;
     } catch (error) {
         console.log(error);
@@ -56,7 +56,7 @@ export const updateAdress = async (adress_id,newInfos)=>{
 
 export const deleteAdress = async (adress_id)=>{
     try {
-        await Adress.destroy({where:{id_Adresses:adress_id}});
+        await Adress.destroy({where:{adress_id:adress_id}});
         console.log("adresse supprimer avec success");
         return "adresse supprimer avec success";
     } catch (error) {

@@ -13,7 +13,7 @@ export const findAllArticle =  async ()=>{
 
 export const findAllArticlesbyUserId =  async (user_id)=>{
     try {
-        const user_articles = await Article.findAll({where:{id_Utilisateur:user_id}});
+        const user_articles = await Article.findAll({where:{user_id:user_id}});
         return user_articles;
     } catch (error) {
         console.log(error);
@@ -46,7 +46,7 @@ export const createArticle = async (newArticle)=>{
 
 export const updateArticle = async (article_id,newInfos)=>{
     try {
-        const updatedArticle = await Article.update(newInfos,{where:{id_Article:article_id}});
+        const updatedArticle = await Article.update(newInfos,{where:{article_id:article_id}});
         return updatedArticle;
     } catch (error) {
         console.log(error);
@@ -56,7 +56,7 @@ export const updateArticle = async (article_id,newInfos)=>{
 
 export const deleteArticle = async (article_id)=>{
     try {
-        await Article.destroy({where:{id_Article:article_id}});
+        await Article.destroy({where:{article_id:article_id}});
         console.log("article supprimer avec success");
         return "article supprimer avec success";
     } catch (error) {

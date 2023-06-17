@@ -33,7 +33,7 @@ export const createPack = async (newPack)=>{
 
 export const updatePack = async (pack_id,newInfos)=>{
     try {
-        const updatedPack = await Pack.update(newInfos,{where:{id:pack_id}});
+        const updatedPack = await Pack.update(newInfos,{where:{pack_id:pack_id}});
         return updatedPack;
     } catch (error) {
         console.log(error);
@@ -43,7 +43,7 @@ export const updatePack = async (pack_id,newInfos)=>{
 
 export const deletePack = async (pack_id)=>{
     try {
-        await Pack.destroy({where:{id:pack_id}});
+        await Pack.destroy({where:{pack_id:pack_id}});
         console.log("produit supprimer avec success");
         return "produit supprimer avec success";
     } catch (error) {
