@@ -5,6 +5,8 @@ import userRouter from "./src/routes/User.Router.js";
 import teamRouter from "./src/routes/Team.Router.js";
 import playerRouter from "./src/routes/Player.Router.js";
 import packRouter from "./src/routes/Pack.Routers.js"
+import cors from 'cors';
+import { checkToken } from "./src/middlewares/Authentication.Middleware.js";
 
 dotenv.config();
 const app = express();
@@ -12,8 +14,14 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 
 
+app.use(
+    cors({
+        origin: "*",
+    })
+)
 
-//const userRoutes = 
+//app.use(checkToken);
+
 
 
 app.listen(process.env.PORT,()=>{
