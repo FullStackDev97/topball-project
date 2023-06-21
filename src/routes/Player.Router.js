@@ -5,6 +5,7 @@ const characterRouter = express.Router();
 
 
 characterRouter.get('/',async (req,res)=>{
+    console.log(req.headers);
     await CharacterController.getAllCharacters(req,res);
 });
 

@@ -28,7 +28,7 @@ const Utilisateur = connection.define('_user',{
         unique:true
     },
     password: {
-        type:DataTypes.STRING,
+        type:DataTypes.TEXT,
         allowNull: true
     },
     date_birth: {
@@ -37,7 +37,7 @@ const Utilisateur = connection.define('_user',{
     },
     profil_pic: {
         type:DataTypes.DATE,
-        allowNull: false
+        allowNull: true
     },
     role: {
         type:DataTypes.ENUM('admin','baller'),
@@ -45,11 +45,11 @@ const Utilisateur = connection.define('_user',{
     },
     division_id: {
         type:DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     adress_id: {
         type:DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     }
 });
 

@@ -51,25 +51,28 @@ export const getUserGamesLost = async (req,res)=>{
 };
 
 export const newUser = async (req,res)=>{
+  //console.log(req);
     
-    const [user, created] = await UserRepo.createUser({
-        where: { email: req.body.email },
-        defaults: {
-            nom: req.body.nom,
-            prenom: req.body.prenom,
+    const  created = await UserRepo.createUser({
+        
+            last_name: req.body.last_name,
+            first_name: req.body.first_name,
+            user_name:req.body.user_name,
             email: req.body.email,
-            date_de_Naissance: req.body.ddn,
-            u_role: req.body.u_role,
-            id_division: req.body.div}
+            date_birth: req.body.date_birth,
+            password: req.body.password,
+            role: "baller",
+            division_id: 1,
+            adress_id:1
       });
 
       if (created !== true){
-        console.log("cet email appartient deja à un compte")
-        res.send("cet email appartient deja à un compte");
+        console.log("creation impossible")
+        res.send("creation impossible");
       }else{
-        console.log("Bienvenue chez nous "+user.nom+" "+user.prenom)
-        console.log(user)
-        res.send("Bienvenue chez nous "+user.nom+" "+user.prenom)
+        console.log("Bienvenue chez nous ")
+        //console.log(user)
+        res.send("Bienvenue chez nous ")
       }
 };
 
