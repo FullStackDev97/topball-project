@@ -20,7 +20,7 @@ export const createUser = async (user)=>{
     try {
         const user = await Utilisateur.create({last_name:last_name,first_name:first_name,user_name:user_name,email:email,password:password,date_birth:date_birth,role:role});
         console.log('utilisateur créé dans la Bdd')
-        return user;
+        return true;
     } catch (error) {
         
         console.log("echec ! impossible de créé l'utilisateur")
@@ -97,14 +97,15 @@ export const updateUserById = async (u_id,data)=>{
 
 export const deleteUserById = async (u_id)=>{
     try {
-        const the_user = await Utilisateur.update({where:{user_id:u_id}});
+        const the_user = await Utilisateur.destroy({where:{user_id:u_id}});
         console.log('utilisateur supprimé dans la Bdd');
         console.log(the_user);
-        //return user;
+        return true;
     } catch (error) {
         console.log("echec ! impossible de supprimer l'utilisateur")
         console.log('#########################################')
         console.log(error);
+        return false;
     }
     
 }

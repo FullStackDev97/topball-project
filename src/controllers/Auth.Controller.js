@@ -6,13 +6,14 @@ const { sign, verify } = jwt;
 
 
 export const login = async (req,res)=>{
-    //console.log("the user "+req.body.email);
+    
     const { email, password } = req.body;
-    console.log(email)
+    
     try {
         const user =  await UserManager.findUserByEmail(email);
         if (user.user != null) {
-            const result = bcrypt.compare(password,user.user.password);
+            const result = await bcrypt.compare(password,user.user.password);
+            
             if (result) {
                 const {user_id,email,user_name,role,adress_id,division_id,profil_pic} = user.user;
                 const token = sign({ headers:{email: user.user.email,user_name: user.user.user_name, role:user.user.role },data: [
@@ -21,8 +22,6 @@ export const login = async (req,res)=>{
                     },
                 ],}, process.env.SECRET_KEY);
                 res.header('Authorization',`Bearer ${token}`);
-                
-                
                 
                 
                 res.status(200).json({status: 200,
