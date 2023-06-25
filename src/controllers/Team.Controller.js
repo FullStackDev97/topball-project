@@ -48,9 +48,9 @@ export const findTeamById = async (req,res)=>{
 export const createTeam = async (req,res)=>{
     try {
         await TeamRepo.createTeam(req.body); 
-        console.log("personnage crée dans la bdd");
+        console.log("equipe crée dans la bdd");
     } catch (error) {
-        console.log("impossible de créé le personnage");
+        console.log("impossible de créé le l'equipe");
         return error;
     }
 }

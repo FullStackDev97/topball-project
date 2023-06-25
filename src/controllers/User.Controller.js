@@ -6,8 +6,11 @@ import * as GameRepo from '../model.managers/Game.Model.Manager.js'
 
 
 export const getUserTeams = async (req,res)=>{
+  console.log(req.query);
+  console.log(req.params);
+  console.log(req.body);
   try {
-    const userTeams = await TeamRepo.findTeamsByUserId(req.body.u_id);
+    const userTeams = await TeamRepo.findTeamsByUserId(req.query.u_id);
     res.send(userTeams);
   } catch (error) {
     res.send(error);
@@ -104,12 +107,12 @@ export const updateUser = async (req,res)=>{
   const [user, created] = await UserRepo.updateUserById({
       where: { email: req.body.email },
       defaults: {
-          nom: req.body.nom,
-          prenom: req.body.prenom,
+          last_name: req.body.nom,
+          first_name: req.body.prenom,
           email: req.body.email,
-          date_de_Naissance: req.body.ddn,
+          date_birth: req.body.ddn,
           u_role: req.body.u_role,
-          id_division: req.body.div}
+          }
     });
 
     if (created !== true){

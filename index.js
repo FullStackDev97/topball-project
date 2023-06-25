@@ -5,8 +5,11 @@ import userRouter from "./src/routes/User.Router.js";
 import teamRouter from "./src/routes/Team.Router.js";
 import playerRouter from "./src/routes/Player.Router.js";
 import packRouter from "./src/routes/Pack.Routers.js"
+import { isAdmin,isUser } from "./src/middlewares/Authorization.Middleware.js";
+
 import cors from 'cors';
 import { checkToken } from "./src/middlewares/Authentication.Middleware.js";
+import adminRouter from "./src/routes/Admin.Router.js";
 
 dotenv.config();
 const app = express();
@@ -19,6 +22,8 @@ app.use(
         origin: "*",
     })
 )
+
+
 
 //app.use(checkToken);
 
@@ -42,6 +47,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/user',userRouter);
+app.use('/admin',isAdmin,adminRouter)
 
 app.use('/team',teamRouter);
 

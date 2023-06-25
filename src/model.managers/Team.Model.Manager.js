@@ -15,13 +15,13 @@ export const findTeamById = async (team_id)=>{
     }
 };
 
-export const findTeamsByUserId = async (user_id)=>{
+export const findTeamsByUserId = async (u_id)=>{
+    console.log(u_id);
     try {
-
         const the_teams = await Team.findAll({
             where: {
-              user_id: user_id
-            },attributes:['name','country']    
+              user_id: u_id
+            },attributes:['team_id','name','country']    
             
         });
         console.log('########## equipes trouvées ########');
